@@ -73,7 +73,7 @@
         header {
             background: rgba(43, 45, 66, 0.9);
             backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            -webkit-background-filter: blur(10px);
             color: white;
             padding: 1rem 0;
             position: fixed;
@@ -901,6 +901,33 @@
             color: var(--gray-light);
         }
         
+        .project-features {
+            margin: 1.5rem 0;
+            padding-left: 1.5rem;
+        }
+        
+        .project-features li {
+            margin-bottom: 0.8rem;
+            position: relative;
+            padding-left: 1.8rem;
+            color: var(--gray);
+        }
+        
+        body.dark-mode .project-features li {
+            color: var(--gray-light);
+        }
+        
+        .project-features li:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.6rem;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--primary);
+        }
+        
         .project-tech {
             display: flex;
             flex-wrap: wrap;
@@ -926,6 +953,46 @@
         .tech-item:hover {
             background: var(--primary);
             color: white;
+        }
+        
+        .project-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .project-btn {
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(67, 97, 238, 0.3);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background: rgba(67, 97, 238, 0.1);
+            transform: translateY(-3px);
         }
         
         /* Certifications Section */
@@ -1525,6 +1592,10 @@
             .projects-grid {
                 grid-template-columns: 1fr;
             }
+
+            .project-buttons {
+                flex-direction: column;
+            }
         }
         
         @media (max-width: 576px) {
@@ -1755,7 +1826,7 @@
     <!-- Experience Section -->
     <section id="experience" class="section">
         <div class="container">
-            <h2 class="section-title">Parcours professionnel</h2>
+            <h2 class="section-title">Parcours académiques</h2>
             
             <div class="timeline">
                 <div class="timeline-item">
@@ -1822,13 +1893,31 @@
                     <div class="project-content">
                         <h3 class="project-title">ASTHMA CONTROLLER</h3>
                         <p class="project-description">
-                            Système de surveillance en temps réel pour patients asthmatiques avec détection précise des crises et alertes immédiates. Analyse des données via la plateforme cloud ThingSpeak.
+                            Système de surveillance médicale en temps réel pour patients asthmatiques intégrant des capteurs environnementaux et physiologiques avec transmission de données sécurisée.
                         </p>
+                        
+                        <ul class="project-features">
+                            <li>Détection précoce des crises d'asthme</li>
+                            <li>Surveillance continue de la qualité de l'air</li>
+                            <li>Alertes en temps réel via application mobile</li>
+                            <li>Analyse prédictive basée sur l'historique des données</li>
+                        </ul>
+                        
                         <div class="project-tech">
                             <span class="tech-item">Arduino</span>
                             <span class="tech-item">Capteurs</span>
                             <span class="tech-item">ThingSpeak</span>
                             <span class="tech-item">C++</span>
+                            <span class="tech-item">Blynk</span>
+                        </div>
+                        
+                        <div class="project-buttons">
+                            <a href="#" class="project-btn btn-primary">
+                                <i class="fas fa-eye"></i> Voir le projet
+                            </a>
+                            <a href="#" class="project-btn btn-outline">
+                                <i class="fab fa-github"></i> Code source
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -1844,12 +1933,32 @@
                     <div class="project-content">
                         <h3 class="project-title">Smart Notification System</h3>
                         <p class="project-description">
-                            Système de notification automatisé pour une expérience utilisateur améliorée utilisant les technologies IoT et une intégration mobile.
+                            Plateforme IoT pour la gestion intelligente des notifications avec personnalisation contextuelle et intégration multi-canaux.
                         </p>
+                        
+                        <ul class="project-features">
+                            <li>Filtrage intelligent des priorités</li>
+                            <li>Personnalisation basée sur le contexte utilisateur</li>
+                            <li>Intégration avec les services cloud</li>
+                            <li>Interface de configuration intuitive</li>
+                            <li>Optimisation énergétique pour fonctionnement prolongé</li>
+                        </ul>
+                        
                         <div class="project-tech">
                             <span class="tech-item">MicroPython</span>
+                            <span class="tech-item">ESP32</span>
                             <span class="tech-item">WiFi</span>
-                            <span class="tech-item">Application Mobile</span>
+                            <span class="tech-item">MQTT</span>
+                            <span class="tech-item">Node-RED</span>
+                        </div>
+                        
+                        <div class="project-buttons">
+                            <a href="#" class="project-btn btn-primary">
+                                <i class="fas fa-eye"></i> Voir le projet
+                            </a>
+                            <a href="#" class="project-btn btn-outline">
+                                <i class="fab fa-github"></i> Code source
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -1863,14 +1972,34 @@
                         </div>
                     </div>
                     <div class="project-content">
-                        <h3 class="project-title">Conception d'un processeur sur FPGA</h3>
+                        <h3 class="project-title">Processeur sur FPGA</h3>
                         <p class="project-description">
-                            Architecture personnalisée d'un processeur implémentée en VHDL avec vérification par simulation ModelSim.
+                            Architecture RISC personnalisée implémentée sur FPGA avec pipeline optimisé et unité de contrôle avancée pour applications embarquées critiques.
                         </p>
+                        
+                        <ul class="project-features">
+                            <li>Architecture 32-bit avec pipeline 5 étages</li>
+                            <li>Jeu d'instructions personnalisé</li>
+                            <li>Unité de calcul flottante intégrée</li>
+                            <li>Interface mémoire optimisée</li>
+                            <li>Validation par simulation complète</li>
+                        </ul>
+                        
                         <div class="project-tech">
                             <span class="tech-item">VHDL</span>
                             <span class="tech-item">FPGA</span>
                             <span class="tech-item">ModelSim</span>
+                            <span class="tech-item">Quartus</span>
+                            <span class="tech-item">SystemVerilog</span>
+                        </div>
+                        
+                        <div class="project-buttons">
+                            <a href="#" class="project-btn btn-primary">
+                                <i class="fas fa-eye"></i> Voir le projet
+                            </a>
+                            <a href="#" class="project-btn btn-outline">
+                                <i class="fab fa-github"></i> Code source
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -1879,35 +2008,40 @@
     </section>
 
     <!-- Certifications Section -->
-    <section id="certifications" class="section">
-        <div class="container">
-            <h2 class="section-title">Formations certifiantes</h2>
-            
-            <div class="certifications-grid">
-                <div class="certification-card">
-                    <div class="certification-image">
-                        <img src="https://getintotechtunisia.inco-group.co/static/media/logo-inco.3d4f55f3.png" alt="Logo INCO Academy" loading="lazy" class="lazy">
-                    </div>
-                    <div class="certification-content">
-                        <h3 class="certification-title">Bootcamp en systèmes embarqués et IoT</h3>
-                        <div class="certification-issuer">INCO Academy</div>
-                        <div class="certification-date"> 9 MAI  - 13 JUIN 2025</div>
-                        <p class="certification-description">
-                            The "Nomu Al Ghurair Get Into Tech" program is a 5-week online training initiative designed to introduce participants to four key digital domains:
-                        </p>
-                            </p>Web Development </p>
-                            </p>Digital Marketing </p>
-                            </p>Data Analysis </p>
-                            </p>Cybersecurity </p>
-                            <p>  </p>
-                                                     
-                        <a href="https://getintotechtunisia.inco-group.co/" target="_blank" class="certification-link">Voir le programme</a>
-                    </div>
+   <!-- ... (le reste du code reste inchangé) ... -->
+
+<!-- Certifications Section -->
+<section id="certifications" class="section">
+    <div class="container">
+        <h2 class="section-title">Formations certifiantes</h2>
+        
+        <div class="certifications-grid">
+            <div class="certification-card">
+                <div class="certification-image">
+                    <!-- L'URL a été mise à jour ici -->
+                    <img src="https://jamaity.org/wp-content/uploads/2019/01/15085669_1352203761464996_1139726858136440599_n.png" alt="Logo INCO Academy" loading="lazy" class="lazy">
+                </div>
+                <div class="certification-content">
+                    <h3 class="certification-title">Bootcamp en systèmes embarqués et IoT</h3>
+                    <div class="certification-issuer">INCO Academy</div>
+                    <div class="certification-date"> 9 MAI  - 13 JUIN 2025</div>
+                    <p class="certification-description">
+                        The "Nomu Al Ghurair Get Into Tech" program is a 5-week online training initiative designed to introduce participants to four key digital domains:
+                    </p>
+                        </p>Web Development </p>
+                        </p>Digital Marketing </p>
+                        </p>Data Analysis </p>
+                        </p>Cybersecurity </p>
+                        <p>  </p>
+                                                 
+                    <a href="https://getintotechtunisia.inco-group.co/" target="_blank" class="certification-link">Voir le programme</a>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
+<!-- ... (le reste du code reste inchangé) ... -->
     <!-- Contact Section -->
     <section id="contact" class="section">
         <div class="container">
@@ -1975,7 +2109,7 @@
                     <a href="mailto:anischaarana3@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
                     <a href="tel:+21699795853" aria-label="Phone"><i class="fas fa-phone"></i></a>
                     <a href="https://linkedin.com/in/chaarana-anis" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="https://github.com/chaarana-anis" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://github.com/anis-chaarana" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
                 </div>
                 
                 <p class="copyright">© <span id="currentYear"></span> Chaarana Anis. Tous droits réservés.</p>
